@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'aplicacion/css/bootstrap.min.css' %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'aplicacion/css/signin.css' %}">
+</head>
+
+<body class="text-center">
+
+    <form action="" method="post" class="form-signin">{% csrf_token %}
+        <img src="{% static " aplicacion/img/plagio.png " %}" alt="">
+        <h2 class="h3 mb-3 font-weight-normal">! Inicia Sesion ¡</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" class="form-control" name="username" placeholder="Ingrese su nombre de usuario" id="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Ingrese su Password" id="">
+        <div class="checkbox mb-3">
+        </div>
+        <button type="submit" class="btn btn-success btn-lg">Iniciar Sesion</button>
+        <p class="mt-5 mb-3 text-muted">&copy; @2017-2018</p>
+    </form>
+</body>
+
+</html>
