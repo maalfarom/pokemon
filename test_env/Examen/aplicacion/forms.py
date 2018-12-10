@@ -1,6 +1,5 @@
 from django import forms
 from .models import user,Tienda
-import logging
 
 class UsuarioModelForm(forms.ModelForm):
     class Meta:
@@ -10,8 +9,7 @@ class UsuarioModelForm(forms.ModelForm):
     def clean_nomUsuario(self):
         nombre = self.cleaned_data.get("username")
         #validaciones
-        logger = logging.getLogger(__name__)
-        logger.error(nombre)
+        print(nombre)
         return nombre
 
     def clean_contrasenia(self):
@@ -20,9 +18,7 @@ class UsuarioModelForm(forms.ModelForm):
         return contrasenia
     
     def clean_staff(self):
-        logger = logging.getLogger(__name__)
-        is_staff = self.cleaned_data.get("staff")
-        logger.error(is_staff)
+        is_staff = self.cleaned_data.get("is_staff")
         return is_staff
 
 class TiendaModelForm(forms.ModelForm):

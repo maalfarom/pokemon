@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'aplicacion',
 ]
+SOCIAL_AUTH_FACEBOOK_KEY ='350633379071708'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='4691a4952ecf5b972875601072938444'  # App Secret
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'Examen.urls'
@@ -64,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -126,3 +132,15 @@ LOGIN_REDIRECT_URL = 'tienda.html'
 LOGOUT_REDIRECT_URL = ''
 
 AUTH_USER_MODEL = "aplicacion.user"
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'logiin'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'logiin'

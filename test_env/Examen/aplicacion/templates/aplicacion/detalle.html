@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Catalogo Online</title>
+</head>
+
+<body>
+    {% include 'aplicacion/base.html' %} {% for l in listas %}
+    <table>
+        <tr>
+            <th>id:</th>
+            <td>{{l.idProducto}}</td>
+        </tr>
+        <tr>
+            <th>Tienda:</th>
+            <td>{{l.nombreTienda}}</td>
+        </tr>
+        <tr>
+            <th>Precio:</th>
+            <td>{{l.precio}}</td>
+        </tr>
+    </table>
+    {% endfor %}
+
+</body>
+
+</html>

@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 from aplicacion import views
 from django.contrib.auth import views as auth_views
+from django.conf.urls import url, include
+from aplicacion.views import ProductoList
+from aplicacion import views as core_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,6 +27,11 @@ urlpatterns = [
     path('tienda.html', views.tienda),
     path('usuario.html',views.index),
     path('foma.html', views.forma),
-    path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name="login"),
+    path('',include('aplicacion.urls')),
+    #path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name="login"),
     path('logout/', auth_views.LoginView.as_view(template_name='registration/login.html'), name="logout"),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
+    path('menu.html', ProductoList.as_view()),
+    path('detalle.html', views.menuu),
+    path('index.html', views.indexs),
 ]

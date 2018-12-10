@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Catalogo Online</title>
+</head>
+
+<body>
+    {% include 'aplicacion/base.html' %} {% if object_list %} {% for prod in object_list %}
+    <div class="section col-sm-12 col-md-5 col-lg-2 col-xs-12 start-lg end-sm center-xs">
+        <table border="1">
+            <tr class='clickable-row' data-href='detalle.html'>
+                <th>Nombre: </th>
+                <td><a href="detalle.html">{{prod.nombreProducto}}</a></td>
+        </table>
+        <br><br>
+    </div>
+    {% endfor %} {% endif %}
+    <ul>
+        <li>
+            {% if page_obj.has_previous %}
+            <button class="paginator">
+            <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        </button> {% endif %}
+        </li>
+        <li>
+            {% if page_obj.has_next %}
+            <button class="paginator">
+            <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        </button> {% endif %}
+        </li>
+    </ul>
+
+    <footer class="footer">
+        Desarrollo Web
+    </footer>
+</body>
+
+</html>

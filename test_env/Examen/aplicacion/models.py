@@ -7,10 +7,6 @@ class user(AbstractUser):
     pass
     extraData = models.CharField(max_length=100, null=True)
 
-    # def staff(self):
-    #     self.is_staff = True       
-    #     self.save()
-
 class Lista(models.Model):
     nombreLista = models.CharField(max_length=50)
     total =  models.IntegerField(default=0)

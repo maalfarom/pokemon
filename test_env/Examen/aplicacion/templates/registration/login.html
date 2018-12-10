@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -27,6 +27,8 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" class="form-control" name="password" placeholder="Ingrese su Password" id="">
         <div class="checkbox mb-3">
+	<p><strong>-- OR --</strong></p>
+  	<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
         </div>
         <button type="submit" class="btn btn-success btn-lg">Iniciar Sesion</button>
         <p class="mt-5 mb-3 text-muted">&copy; @2017-2018</p>
